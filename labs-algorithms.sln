@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.32407.337
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "z7GraphUtils", "z7GraphUtils\z7GraphUtils.csproj", "{C64BFF23-E904-49C8-8F2B-91D3B6141459}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lpr-1", "lpr-1\lpr-1.csproj", "{8CE24D69-6417-4684-85D8-CEA8CFA62D6D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C64BFF23-E904-49C8-8F2B-91D3B6141459} = {C64BFF23-E904-49C8-8F2B-91D3B6141459}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{C64BFF23-E904-49C8-8F2B-91D3B6141459}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C64BFF23-E904-49C8-8F2B-91D3B6141459}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C64BFF23-E904-49C8-8F2B-91D3B6141459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CE24D69-6417-4684-85D8-CEA8CFA62D6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CE24D69-6417-4684-85D8-CEA8CFA62D6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CE24D69-6417-4684-85D8-CEA8CFA62D6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CE24D69-6417-4684-85D8-CEA8CFA62D6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

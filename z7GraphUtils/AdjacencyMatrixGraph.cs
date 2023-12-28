@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Text;
 
 namespace z7GraphUtils
 {
-    class AdjacencyMatrixGraph
+    public class AdjacencyMatrixGraph
     {
         private int nodes;
         private Node[] nodesArray;
@@ -28,6 +29,32 @@ namespace z7GraphUtils
                 Console.ResetColor();
                 Console.WriteLine();
             }
+        }
+        public string GraphToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            // Append node information
+            /*sb.AppendLine("Nodes:");
+            for (int i = 0; i < nodes; i++)
+            {
+                sb.AppendLine($"Node {i + 1}: {nodesArray[i].ToString()}");
+            }
+            */
+            // Append edge information
+            sb.AppendLine("Edges:");
+            for (int i = 0; i < nodes; i++)
+            {
+                for (int j = 0; j < nodes; j++)
+                {
+                    if (matrix[i, j] != null)
+                    {
+                        sb.AppendLine($"Edge from Node {i + 1} to Node {j + 1}: {matrix[i, j].weight}");
+                    }
+                }
+            }
+
+            return sb.ToString();
         }
         public void SetEdge(int source, int target, int weight = 1, bool notOriented = false)
         {
