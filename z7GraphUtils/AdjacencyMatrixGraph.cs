@@ -30,28 +30,27 @@ namespace z7GraphUtils
                 Console.WriteLine();
             }
         }
-        public string GraphToString()
+        public string GraphToString(bool headlines = true)
         {
             StringBuilder sb = new StringBuilder();
 
-            // Append node information
-            /*sb.AppendLine("Nodes:");
-            for (int i = 0; i < nodes; i++)
-            {
-                sb.AppendLine($"Node {i + 1}: {nodesArray[i].ToString()}");
+            if (headlines) { 
+                for (int i = 0; i < nodes; i++)
+                {
+                    Console.BackgroundColor = nodesArray[i].color;
+                    sb.Append($"\t{i}");
+                }
+                sb.AppendLine("");
             }
-            */
-            // Append edge information
-            sb.AppendLine("Edges:");
             for (int i = 0; i < nodes; i++)
             {
+                if (headlines)
+                    sb.Append($"{i} \t");
                 for (int j = 0; j < nodes; j++)
                 {
-                    if (matrix[i, j] != null)
-                    {
-                        sb.AppendLine($"Edge from Node {i + 1} to Node {j + 1}: {matrix[i, j].weight}");
-                    }
+                    sb.Append($"{matrix[i, j].weight} \t");
                 }
+                sb.AppendLine("");
             }
 
             return sb.ToString();
