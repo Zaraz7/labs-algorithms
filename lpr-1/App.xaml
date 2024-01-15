@@ -9,5 +9,8 @@
             <Setter Property="Padding" Value="3,2"/>
             <Setter Property="Foreground" Value="Black" />
         </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="Margin" Value="3"/>
+        </Style>
     </Application.Resources>
 </Application>

@@ -15,11 +15,11 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel x:Name="spViewer" Grid.RowSpan="2"/>
+        <GroupBox Header="Визуализация" x:Name="gbViewer" Grid.RowSpan="2"/>
         <WrapPanel Grid.Row="1" Grid.Column="1">
             <StackPanel Orientation="Horizontal" Margin="5">
                 <CheckBox Content="Заголовки"/>
-                <RadioButton GroupName="Representation_Group" Content="Матрица смежности"/>
+                <RadioButton GroupName="Representation_Group" Content="Матрица смежности" IsChecked="True"/>
                 <RadioButton GroupName="Representation_Group" Content="Список смежности"/>
             </StackPanel>
             
@@ -34,6 +34,6 @@
             <Button Content="Долность"/>
             
         </WrapPanel>
-        <TextBox Name="tbGlobal" Grid.Column="1" HorizontalAlignment="Left" Height="190" Margin="10,10,0,0" Text="Здесь будет представление графа" VerticalAlignment="Top" Width="376"/>
+        <TextBox Name="tbGlobal" Grid.Column="1" HorizontalAlignment="Left" Height="190" Margin="10,10,0,0" Text="Здесь будет представление графа" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Width="376"/>
     </Grid>
 </Window>
