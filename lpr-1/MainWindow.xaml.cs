@@ -21,20 +21,26 @@ namespace lpr_1
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static int nodesNumber = 6;
+        //public static int nodesNumber = 6;
         enum subs { AdjacencyMatrix = 0, AdjacencyList = 1 };
-        public static AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(nodesNumber);
+        public static AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(6);
+        Random random = new Random();
 
-        static void Oriented()
-        {
-            graph.SetEdge(1, 2, 10, true);
-
-        }
 
         public MainWindow()
         {
             InitializeComponent();
 
+        }
+
+        private void btcOrientedLoop(object sender, RoutedEventArgs e)
+        {
+            for (int i = 1; i < graph.nodes; i++)
+            {
+                graph.SetEdge(i-1, i, random.Next(1, 99));
+            }
+            graph.SetEdge(graph.nodes-1, 0, random.Next(1, 99));
+            tbGlobal.Text = graph.GraphToString(cbHeadings.IsChecked ?? false);
         }
     }
 }
