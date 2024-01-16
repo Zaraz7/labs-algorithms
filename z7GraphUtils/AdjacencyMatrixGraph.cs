@@ -5,9 +5,9 @@ namespace z7GraphUtils
 {
     public class AdjacencyMatrixGraph
     {
-        private int nodes;
-        private Node[] nodesArray;
-        private Edge[,] matrix;
+        public int nodes;
+        public Node[] nodesArray;
+        public Edge[,] matrix;
         public void Print()
         {
             Console.Write($" \t");
@@ -37,7 +37,6 @@ namespace z7GraphUtils
             if (headlines) { 
                 for (int i = 0; i < nodes; i++)
                 {
-                    Console.BackgroundColor = nodesArray[i].color;
                     sb.Append($"\t{i}");
                 }
                 sb.AppendLine("");
@@ -77,6 +76,8 @@ namespace z7GraphUtils
             if (notOriented)
                 matrix[target, source].color = color;
         }
+
+        //public delegate void EdgeHandler(int source, int target);
 
         public AdjacencyMatrixGraph(int nodes, bool colorfull = true)
         {
