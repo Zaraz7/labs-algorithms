@@ -16,8 +16,6 @@ namespace z7GraphUtils
     }
     public class Edge
     {
-        //public int source;
-        //public int target;
         public int weight = 0;
         public ConsoleColor color;
     }
