@@ -40,7 +40,46 @@ namespace lpr_1
                 graph.SetEdge(i-1, i, random.Next(1, 99));
             }
             graph.SetEdge(graph.nodes-1, 0, random.Next(1, 99));
-            tbGlobal.Text = graph.GraphToString(cbHeadings.IsChecked ?? false);
+            tbGlobal.Text = graph.GraphToString(cbHeadings.IsChecked ?? false, cbColors.IsChecked ?? false);
+        }
+        private void btcBiPartite(object sender, RoutedEventArgs e)
+        {
+            var redNodes = new List<int>();
+            var blueNodes = new List<int>();
+
+
+            for (int i = 0; i < graph.nodes; i++)
+            {
+                if (random.Next(2) == 0)
+                {
+                    redNodes.Add(i);
+                    graph.SetColor4Node(i, ConsoleColor.Red);
+                }
+                else
+                {
+                    blueNodes.Add(i);
+                    graph.SetColor4Node(i, ConsoleColor.Blue);
+                }
+
+            }
+            foreach (int source in redNodes)
+            {
+                graph.SetEdge(source, blueNodes[random.Next(blueNodes.Count)], 1, true, (ConsoleColor)random.Next(9, 15));
+            }
+            foreach (int source in blueNodes)
+            {
+                graph.SetEdge(source, redNodes[random.Next(redNodes.Count)], 1, true, (ConsoleColor)random.Next(9, 15));
+            }
+            tbGlobal.Text = graph.GraphToString(cbHeadings.IsChecked ?? false, cbColors.IsChecked ?? false);
+
+        }
+
+        private void cbColors_Checked(object sender, RoutedEventArgs e)
+        {   
+            if (tbGlobal != null)
+            {
+                tbGlobal.Text = graph.GraphToString(cbHeadings.IsChecked ?? false, cbColors.IsChecked ?? false);
+            } 
         }
     }
 }

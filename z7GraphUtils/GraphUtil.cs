@@ -12,11 +12,11 @@ namespace z7GraphUtils
     public class Node
     {
         public int weight = 1;
-        public ConsoleColor color;
+        public ConsoleColor color = ConsoleColor.Black;
     }
     public class Edge
     {
         public int weight = 0;
-        public ConsoleColor color;
+        public ConsoleColor color = ConsoleColor.Black;
     }
 }

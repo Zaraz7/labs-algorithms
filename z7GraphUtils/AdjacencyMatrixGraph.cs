@@ -30,7 +30,7 @@ namespace z7GraphUtils
                 Console.WriteLine();
             }
         }
-        public string GraphToString(bool headlines = true)
+        public string GraphToString(bool headlines = true, bool colors = false)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -38,15 +38,21 @@ namespace z7GraphUtils
                 for (int i = 0; i < nodes; i++)
                 {
                     sb.Append($"\t{i}");
+                    if (colors)
+                        sb.Append(Enum.GetName(nodesArray[i].color.GetType(), nodesArray[i].color));
+
                 }
                 sb.AppendLine("");
             }
             for (int i = 0; i < nodes; i++)
             {
-                if (headlines)
+                if (headlines) { 
                     sb.Append($"{i} \t");
+                }
                 for (int j = 0; j < nodes; j++)
                 {
+                    if (colors)
+                        sb.Append(Enum.GetName(matrix[i, j].color.GetType(), matrix[i, j].color));
                     sb.Append($"{matrix[i, j].weight} \t");
                 }
                 sb.AppendLine("");
@@ -54,17 +60,23 @@ namespace z7GraphUtils
 
             return sb.ToString();
         }
-        public void SetEdge(int source, int target, int weight = 1, bool notOriented = false)
+        public void SetEdge(int source, int target, int weight = 1, bool notOriented = false, ConsoleColor color = ConsoleColor.Black)
         {
             matrix[source, target].weight = weight;
-            if (notOriented)
+            matrix[source, target].color = color;
+            if (notOriented) { 
                 matrix[target, source].weight = weight;
+                matrix[target, source].color = color;
+            }
         }
         public void DropEdge(int source, int target, bool notOriented = false)
         {
             matrix[source, target].weight = 0;
-            if (notOriented)
+            matrix[source, target].color = ConsoleColor.Black;
+            if (notOriented) { 
                 matrix[target, source].weight = 0;
+                matrix[target, source].color = ConsoleColor.Black;
+            }
         }
         public void SetColor4Node(int target, ConsoleColor color)
         {

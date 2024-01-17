@@ -16,24 +16,28 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <GroupBox Header="Визуализация" x:Name="gbViewer" Grid.RowSpan="2"/>
-        <WrapPanel Grid.Row="1" Grid.Column="1">
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <CheckBox x:Name="cbHeadings" Content="Заголовки" IsChecked="True"/>
-                <RadioButton GroupName="Representation_Group" Content="Матрица смежности" IsChecked="True"/>
-                <RadioButton GroupName="Representation_Group" Content="Список смежности" IsEnabled="False"/>
-            </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
             
+        <WrapPanel>
+                <CheckBox x:Name="cbHeadings" Content="Заголовки" IsChecked="True" Checked="cbColors_Checked" Unchecked="cbColors_Checked"/>
+            <CheckBox x:Name="cbColors" Content="Цвета" IsChecked="True" Checked="cbColors_Checked" Unchecked="cbColors_Checked"/>
+            <RadioButton GroupName="Representation_Group" Content="Матрица смежности" IsChecked="True"/>
+            <RadioButton GroupName="Representation_Group" Content="Список смежности"/>
+        </WrapPanel>
+        <WrapPanel>
             <Button Content="Ориентированный с циклам и весом" Click="btcOrientedLoop"/>
-            <Button Content="Связанность"/>
-            <Button Content="Взвешанность"/> <!-- реберная и верщинная, с отрицательными ребрами и без -->
-            <Button Content="Раскраска"/> 
+            <Button Content="Долный разукрашенный" Click="btcBiPartite"/>
+
+            <Button Content="Связанность" IsEnabled="False"/>
+            <Button Content="Взвешанность" IsEnabled="False"/> <!-- реберная и верщинная, с отрицательными ребрами и без -->
+            <Button Content="Раскраска" IsEnabled="False"/> 
             <!-- реберная и верщинная-->
-            <Button Content="Наличие кратных ребер и петель"/>
-            <Button Content="Наличие циклов"/>
-            <Button Content="Полнота"/>
-            <Button Content="Долность"/>
+            <Button Content="Наличие кратных ребер и петель" IsEnabled="False"/>
+            <Button Content="Наличие циклов" IsEnabled="False"/>
+            <Button Content="Полнота" IsEnabled="False"/>
             
         </WrapPanel>
-        <TextBox Name="tbGlobal" Grid.Column="1" HorizontalAlignment="Left" Height="190" Margin="10,10,0,0" Text="Здесь будет представление графа" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Width="376"/>
+        </StackPanel>
+        <TextBox Name="tbGlobal" Grid.Column="1" HorizontalAlignment="Stretch" Margin="10,10,10,10" Text="Здесь будет представление графа" VerticalScrollBarVisibility="Visible" VerticalAlignment="Stretch" />
     </Grid>
 </Window>
